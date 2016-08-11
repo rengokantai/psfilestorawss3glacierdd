@@ -1,4 +1,4 @@
-# psfilestorawss3glacierdd
+#### psfilestorawss3glacierdd
 ######8 Upload to s3
 naming criteria:
 can contain lowercase letters, numbers ,periods and hyphens  
@@ -65,3 +65,29 @@ return false;
 }
 }
 ```
+######17website hosting:
+Edit redirection rules:
+```
+<RoutingRules>
+<RoutingRule>
+<Condition>
+<HttpErrorCodeReturnedEquals>403</HttpErrorCodeReturnedEquals>
+</Condition>
+<Redirect>
+<HostName>localhost:8080</HostName>
+<ReplaceKeyPrefixWith>images/report</ReplaceKeyPrefixWith>
+</Redirect>
+</RoutingRule>
+</RoutingRules>
+```
+######20 Lifecycle
+lifecycle policy runs only midnight UTC time.
+######21 Transitioning objects between storage classes
+supported  
+from std or rrd ro infrequent access  
+from any to glacier
+rules can be combined if donot conflict  
+unsupported
+from inf to std of rrd  
+from glacier to any  
+from any to rrd
