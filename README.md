@@ -16,7 +16,7 @@ $key = "images/ke/jpg"
 Write-S3Object -BucketName ke -File $photo -Key $key -CannedACLName authenticated-read -StorageClass STANDARD_IA -Metadata @{location = "NewYork"}
 ```
 ######10
-only install awssdk, s3
+only install awssdk, s3 (Nuget)
 ```
 Install-Package AWSSDK.S3
 ```
@@ -91,3 +91,18 @@ unsupported
 from inf to std of rrd  
 from glacier to any  
 from any to rrd
+######22 Expiring old objects
+```
+Get-S3ObjectMetadata -BucketName ke -Key 123
+```
+######26 Glacier vault
+enable SNS.  
+then Permissions->edit policy document->
+
+######27
+32kb archive overhead.
+save large files,zip small files  
+(Nuget)  
+```
+Install-Package AWSSDK.Glacier
+```
